@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Teachers' Day Surprise</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    text-align: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg,#ffe5ec,#fff3cd,#e0f7fa);
+    overflow-x: hidden;
+}
+
+.screen {
+    min-height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.screen.active {
+    display: flex;
+}
+
+.card {
+    width: 95%;
+    max-width: 700px;
+    background: rgba(255,255,255,.94);
+    padding: 35px 25px;
+    border-radius: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.15);
+}
+
+h1 {
+    color: #d63384;
+    font-size: 42px;
+}
+
+h2 {
+    color: #7b2cbf;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+button {
+    border: none;
+    border-radius: 25px;
+    padding: 13px 22px;
+    margin: 8px;
+    font-size: 17px;
+    cursor: pointer;
+    background: #d63384;
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.06);
+}
+
+.choice {
+    display: block;
+    width: 90%;
+    max-width: 450px;
+    margin: 12px auto;
+    background: #f3e5f5;
+    color: #5a189a;
+}
+
+.choice:hover {
+    background: #e1bee7;
+}
+
+#feedback {
+    font-size: 20px;
+    font-weight: bold;
+    min-height: 30px;
+}
+
+.gift {
+    font-size: 130px;
+    cursor: pointer;
+    animation: bounce 1.5s infinite;
+}
+
+.giftText {
+    color: #d63384;
+}
+
+.photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.photos img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,.2);
+    animation: photoIn 1s ease;
+}
+
+.finalWish {
+    font-size: 21px;
+    line-height: 1.8;
+}
+
+.big {
+    font-size: 55px;
+}
+
+@keyframes bounce {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes photoIn {
+    from {
+        opacity: 0;
+        transform: scale(.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- SCREEN 1 : FUNNY QUIZ -->
+
+<section id="quizScreen" class="screen active">
+<div class="card">
+
+    <div class="big">😂🎓😂</div>
+
+    <h1>Teacher Fun Challenge!</h1>
+
+    <p>
+        Before opening the surprise gift... 🎁<br>
+        Let's see how well you know teacher life! 😄
+    </p>
+
+    <h2 id="question"></h2>
+
+    <div id="choices"></div>
+
+    <p id="feedback"></p>
+
+    <p id="score"></p>
+
+</div>
+</section>
+
+
+<!-- SCREEN 2 : GIFT -->
+
+<section id="giftScreen" class="screen">
+<div class="card">
+
+    <div class="big">🎉</div>
+
+    <h1>Congratulations! 🎉</h1>
+
+    <p>You completed the Teacher Fun Challenge! 😍</p>
+
+    <h2 class="giftText">
+        Something special is waiting for you...
+    </h2>
+
+    <div class="gift" onclick="openGift()">
+        🎁
+    </div>
+
+    <p>
+        👆 Click the gift box
+    </p>
+
+</div>
+</section>
+
+
+<!-- SCREEN 3 : PHOTOS -->
+
+<section id="photoScreen" class="screen">
+<div class="card">
+
+    <div class="big">📸💐</div>
+
+    <h1>Beautiful Memories</h1>
+
+    <h2>Our Wonderful Teachers ❤️</h2>
+
+    <p>
+        Every picture has a memory...<br>
+        Every teacher makes a difference. 🌷
+    </p>
+
+    <div class="photos">
+
+        <!-- Replace these names with your photo names -->
+
+        <img src="mam7.jpg" alt="Teacher Photo">
+        <img src="mam6.jpg" alt="Teacher Photo">
+        <img src="mam5.jpg" alt="Teacher Photo">
+        <img src="mam1.jpg" alt="Teacher Photo">
+
+    </div>
+
+    <button onclick="showWishes()">
+        💐 Continue to Wishes
+    </button>
+
+</div>
+</section>
+
+
+<!-- SCREEN 4 : FINAL WISHES -->
+
+<section id="wishScreen" class="screen">
+<div class="card">
+
+    <div class="big">🌸💐🌸</div>
+
+    <h1>Happy Teachers' Day!</h1>
+
+    <h2>To All My Dear Teachers ❤️</h2>
+
+    <div class="finalWish">
+
+        <p>
+        On this special day, I wish all my wonderful
+        colleagues a very Happy Teachers' Day! 🌷
+        </p>
+
+        <p>
+        Teaching is not just a profession;
+        it is a beautiful journey of inspiring,
+        guiding and growing together.
+        </p>
+
+        <p>
+        Thank you for the support, friendship,
+        laughter and beautiful memories we share
+        every day. ❤️
+        </p>
+
+        <p>
+        May we continue to inspire our students
+        and make every classroom a place of
+        happiness and learning. ✨
+        </p>
+
+        <h2>
+        🌟 Happy Teachers' Day to All of Us! 🌟
+        </h2>
+
+        <p>
+        With lots of love, respect and best wishes 💐
+        </p>
+
+        <h2>
+        — From Your Sameera Teacher ❤️
+        </h2>
+
+    </div>
+
+</div>
+</section>
+
+
+<script>
+
+let questions = [
+
+{
+    question: "😂 What is a teacher's most powerful superpower?",
+    choices: [
+        "A) Flying 🦸",
+        "B) Knowing who is talking without looking 👀",
+        "C) Reading minds 🧠",
+        "D) Sleeping in class 😴"
+    ],
+    answer: 1
+},
+
+{
+    question: "😂 Which sentence do teachers hear the most?",
+    choices: [
+        "A) Good morning! 🌞",
+        "B) Miss/Sir, can I go to the washroom? 🚶",
+        "C) I finished my homework! 📚",
+        "D) I love exams! 😂"
+    ],
+    answer: 1
+},
+
+{
+    question: "😂 What happens when the Principal enters the classroom?",
+    choices: [
+        "A) Everyone becomes silent 🤫",
+        "B) Everyone starts dancing 💃",
+        "C) Everyone sleeps 😴",
+        "D) Everyone runs away 🏃"
+    ],
+    answer: 0
+},
+
+{
+    question: "😂 What is a teacher's favourite exercise?",
+    choices: [
+        "A) Gym workout 🏋️",
+        "B) Running marathon 🏃",
+        "C) Walking between classrooms 🚶",
+        "D) Swimming 🏊"
+    ],
+    answer: 2
+}
+
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+function loadQuestion() {
+
+    let q = questions[currentQuestion];
+
+    document.getElementById("question").innerText =
+        q.question;
+
+    document.getElementById("choices").innerHTML = "";
+
+    document.getElementById("feedback").innerText = "";
+
+    document.getElementById("score").innerText =
+        "Question " + (currentQuestion + 1) +
+        " / " + questions.length;
+
+    q.choices.forEach((choice,index) => {
+
+        let button = document.createElement("button");
+
+        button.className = "choice";
+
+        button.innerText = choice;
+
+        button.onclick = function() {
+            checkAnswer(index);
+        };
+
+        document.getElementById("choices")
+        .appendChild(button);
+
+    });
+}
+
+
+function checkAnswer(selected) {
+
+    let q = questions[currentQuestion];
+
+    if(selected === q.answer) {
+
+        score++;
+
+        document.getElementById("feedback").innerText =
+            "🎉 Correct! You're a Super Teacher! 👏";
+
+    } else {
+
+        document.getElementById("feedback").innerText =
+            "😂 Oops! Teacher life is full of surprises!";
+    }
+
+    setTimeout(function() {
+
+        currentQuestion++;
+
+        if(currentQuestion < questions.length) {
+
+            loadQuestion();
+
+        } else {
+
+            document.getElementById("quizScreen")
+            .classList.remove("active");
+
+            document.getElementById("giftScreen")
+            .classList.add("active");
+
+        }
+
+    },1500);
+}
+
+
+function openGift() {
+
+    document.getElementById("giftScreen")
+    .classList.remove("active");
+
+    document.getElementById("photoScreen")
+    .classList.add("active");
+}
+
+
+function showWishes() {
+
+    document.getElementById("photoScreen")
+    .classList.remove("active");
+
+    document.getElementById("wishScreen")
+    .classList.add("active");
+}
+
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
